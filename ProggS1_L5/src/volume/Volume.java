@@ -10,22 +10,37 @@ public class Volume {
         this.volume=vol;
     }
 
-    public void aumentaVolume(Scanner myScanner){
+    public void regolaVolume(Scanner myScanner){
 
-        do {
-            volumeAttuale(volume);
-            System.out.println("Confermi la tua scelta? si/no");
-            String risposta= myScanner.next();
-            if (risposta.equals("si")){
-                break;
-            }else if (risposta.equals("no")){
-                if (volume <5){
+        do{
+            volumeAttuale(this.volume);
+            System.out.println("Vuoi aumentare o diminuire il volume? fai: +/- ");
+            System.out.println("oppure digita si per confermare");
+            String scelta= myScanner.next();
+
+
+             if (scelta.equals("+")){
+                if (this.volume <5){
                     System.out.println("Volume aumentato");
                     volume++;
                 }else {
-                    System.out.println("Luminosità al massimo");
+                    System.out.println("Volume al massimo");
                 }
-            }
+
+            } else if (scelta.equals("-")) {
+                 if (this.volume >0){
+                     System.out.println("Volume diminuito");
+                     this.volume--;
+                 }else {
+                     System.out.println("Volume al minimo");
+                 }
+                 System.out.println("confermi la tua scelta? si per confermare");
+                 String risposta=myScanner.next();
+
+                 if (risposta.equals("si")){
+                     break;
+                 }
+             }
         }while (true);
 
     }
@@ -39,7 +54,7 @@ public class Volume {
                 System.out.println("Volume:!!");
                 break;
             case 3:
-                System.out.println("Vlume:!!!");
+                System.out.println("Volume:!!!");
                 break;
             case 4:
                 System.out.println("Volume:!!!!");
@@ -49,6 +64,7 @@ public class Volume {
                 break;
             default:
                 System.out.println("Parametro non valido, scegli da 1 a 5");
+                break;
         }
     }
     }
